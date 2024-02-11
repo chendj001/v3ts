@@ -12,5 +12,4 @@ app.use(createPinia())
 app.use(router)
 
 app.mount('#app')
-
-const t1 = PromiseT<string>
+sleep(5000)

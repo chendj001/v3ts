@@ -1,2 +1,2 @@
-/// <reference types="./types/index" />
+import "./auto-imports"
 /// <reference types="vite/client" />
