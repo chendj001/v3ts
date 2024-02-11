@@ -5,11 +5,19 @@ const dialogParams: Parameters<typeof useDialog>[0] = {
   name: '000'
 }
 useDialog(dialogParams)
+
+const Menu = defineComponent({
+  name:'Menu',
+  setup() { },
+  render() {
+    return h('div', null, 'Hello')
+  }
+})
 </script>
 
 <template>
   <header>
-    header
+    <Menu></Menu>
     <Jsdoc></Jsdoc>
   </header>
   <RouterView />
@@ -17,7 +25,7 @@ useDialog(dialogParams)
 
 <style lang="scss">
 #app {
-  width: 900px;
+  max-width: 900px;
   padding-top: 50px;
   margin: 0 auto;
 }
