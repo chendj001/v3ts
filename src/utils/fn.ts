@@ -8,3 +8,11 @@ export async function sleep(time: number): Promise<boolean> {
     }, time)
   })
 }
+
+/**
+ * 使用弹窗
+ */
+export async function useDialog(params: { name: string }) {
+  console.log('使用弹窗useDialog=>',params)
+  return
+}

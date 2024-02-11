@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
 import Jsdoc from '@/md/ts/typing.md'
+const dialogParams: Parameters<typeof useDialog>[0] = {
+  name: '000'
+}
+useDialog(dialogParams)
 </script>
 
 <template>

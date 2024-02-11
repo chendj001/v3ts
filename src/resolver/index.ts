@@ -1,6 +1,6 @@
 import { join } from 'path'
 import { normalizePath } from 'vite'
-let hooks = ['sleep']
+let hooks = ['sleep','useDialog']
 
 import type { Resolver } from 'unplugin-auto-import/types'
 function resolveHooks(name: string) {
