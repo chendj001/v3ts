@@ -7,6 +7,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import AutoImport from 'unplugin-auto-import/vite'
 
 import VitePluginVitepress from './src/plugins/vite-plugin-vitepress'
+import VitePluginClean from './src/plugins/vite-plugin-clean'
 import myLib from './src/resolver'
 
 // https://vitejs.dev/config/
@@ -32,6 +33,9 @@ export default defineConfig({
       // global imports to register
       imports: ['vue', 'vue-router'],
       resolvers: [myLib()]
+    }),
+    VitePluginClean({
+      targetFiles: /dev-dist|dist/ 
     })
   ],
   resolve: {

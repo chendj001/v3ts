@@ -5,7 +5,10 @@
     "vitest.config.*",
     "cypress.config.*",
     "nightwatch.conf.*",
-    "playwright.config.*"
+    "playwright.config.*",
+    "./src/resolver",
+    "./src/plugins/vite-plugin-clean",
+    "./src/plugins/vite-plugin-vitepress"
   ],
   "compilerOptions": {
     "composite": true,
