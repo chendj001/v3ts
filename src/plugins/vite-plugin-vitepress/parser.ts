@@ -1,4 +1,4 @@
-import { relative } from 'path'
+import { relative, extname, basename } from 'path'
 import type { ResolvedConfig } from 'vite'
 import { normalizePath } from 'vite'
 import type { MarkdownEnv } from 'vitepress'
@@ -7,8 +7,10 @@ import type { UserOptions } from './typing'
 
 export class Parser {
   public md: Awaited<ReturnType<typeof createMarkdownRenderer>> | undefined
-  constructor(public readonly config: ResolvedConfig, public readonly options: UserOptions) {
-  }
+  constructor(
+    public readonly config: ResolvedConfig,
+    public readonly options: UserOptions
+  ) {}
 
   public async setupRenderer() {
     const srcDir = this.config.root
@@ -20,23 +22,24 @@ export class Parser {
     const env: MarkdownEnv = {
       path: id,
       relativePath: normalizePath(relative(this.config.root, id)),
-      cleanUrls: 'without-subfolders',
+      cleanUrls: 'without-subfolders'
     }
     const html = this.md?.render(code, env)
     const { sfcBlocks } = env
+    let mdName = 'md-' + basename(id).replace(extname(id), '')
     if (html) {
       return [
         sfcBlocks?.scriptSetup ? sfcBlocks?.scriptSetup?.content : '',
         `<template><div class="vp-doc">${html}</div></template>`,
-        ...sfcBlocks?.styles.map(item => item.content) ?? [],
-        ...sfcBlocks?.customBlocks?.map(item => item.content) ?? [],
+        ...(sfcBlocks?.styles.map((item) => item.content) ?? []),
+        ...(sfcBlocks?.customBlocks?.map((item) => item.content) ?? []),
+        mdName ? `<script>export default { name:'${mdName}'}</script>` : ''
       ].join('\n')
     }
     return `<template><div class="vp-doc">${html}</div></template>`
   }
 
   public async transform(code: string, id: string) {
-    if (id.endsWith('.md'))
-      return await this.parseMarkdown(code, id)
+    if (id.endsWith('.md')) return await this.parseMarkdown(code, id)
   }
 }

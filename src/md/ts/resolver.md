@@ -1,3 +1,7 @@
+---
+title: 注释说明
+name: Resolver
+---
 ### 编辑自己的 unplugin-auto-import/resolvers
 
 <<< @/src/resolver/index.ts

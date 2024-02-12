@@ -1,5 +1,5 @@
 
-<<< @/types/index.d.ts#PromiseT
+<<< @/src/types/index.d.ts#PromiseT
 
 ```ts
 // 示例
