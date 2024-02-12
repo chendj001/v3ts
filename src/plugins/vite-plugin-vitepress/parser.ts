@@ -22,7 +22,7 @@ export class Parser {
     const env: MarkdownEnv = {
       path: id,
       relativePath: normalizePath(relative(this.config.root, id)),
-      cleanUrls: 'without-subfolders'
+      cleanUrls: true
     }
     const html = this.md?.render(code, env)
     const { sfcBlocks } = env
