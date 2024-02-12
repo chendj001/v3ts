@@ -19,7 +19,7 @@ export default defineConfig({
       }
     }),
     vue({
-      include: [/\.vue$/, /\.md$/]
+      include: [/\.[tj]sx$/, /\.vue$/, /\.md$/]
     }),
     vueJsx(),
     AutoImport({
@@ -35,7 +35,7 @@ export default defineConfig({
       resolvers: [myLib()]
     }),
     VitePluginClean({
-      targetFiles: /dev-dist|dist/ 
+      targetFiles: /dev-dist|dist/
     })
   ],
   resolve: {
