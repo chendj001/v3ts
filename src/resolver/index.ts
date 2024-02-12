@@ -2,10 +2,12 @@ import { join } from 'path'
 import { normalizePath } from 'vite'
 // 使用类型
 import type { Resolver } from 'unplugin-auto-import/types'
+
+import * as libs from '../utils/index'
 /**
  * 暴露哪些函数可以直接使用
  */
-let hooks = ['sleep', 'useDialog']
+let hooks = Object.keys(libs)
 
 function resolveHooks(name: string) {
   if (!hooks) return

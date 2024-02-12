@@ -7,12 +7,16 @@ const dialogParams: Parameters<typeof useDialog>[0] = {
 useDialog(dialogParams)
 
 const Menu = defineComponent({
-  name:'Menu',
+  name: 'Menu',
   setup() { },
   render() {
     return h('div', null, 'Hello')
   }
 })
+copyToClipboard('123')
+
+getVer('ppp')
+
 </script>
 
 <template>
