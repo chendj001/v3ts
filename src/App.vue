@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
-import Jsdoc from '@/md/ts/resolver.md'
 const dialogParams: Parameters<typeof useDialog>[0] = {
   name: '000'
 }
@@ -22,7 +21,6 @@ getVer('ppp')
 <template>
   <header>
     <Menu></Menu>
-    <Jsdoc></Jsdoc>
   </header>
   <RouterView />
 </template>
