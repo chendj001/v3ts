@@ -1,7 +1,10 @@
 import router from "@/router";
 import { defineStore } from "pinia";
-
-const usePermissionStore = defineStore('permission', {
+import asyncRoute from '@/router/routes/async'
+import { findRootPathRoute, generatorRoutes, resolvePath } from "../help";
+import type { RouteRecordRaw } from "vue-router";
+import { constantRoutes } from "@/router/routes/constants";
+export const usePermissionStore = defineStore('permission', {
   state: () => {
     return {
       permissionRoutes: [] as any[]
@@ -21,6 +24,20 @@ const usePermissionStore = defineStore('permission', {
   },
   actions: {
     async init() {
+      const assessRoutes = await this.getRoute();
+      console.log('1111111111', assessRoutes)
+      assessRoutes.forEach(route => {
+        router.addRoute(route)
+      })
+      const root = findRootPathRoute(assessRoutes)
+      // 设置默认首页
+      router.addRoute({
+        path: '/',
+        redirect: root ?? '/',
+        meta: {
+          hidden: true,
+        },
+      })
       // 这个路由一定要放在最后
       router.addRoute({
         path: '/:pathMatch(.*)*',
@@ -28,6 +45,12 @@ const usePermissionStore = defineStore('permission', {
         meta: {
           hidden: true,
         },
+      })
+      this.permissionRoutes = [...constantRoutes, ...assessRoutes]
+    },
+    getRoute() {
+      return new Promise<RouteRecordRaw[]>((resolve) => {
+        resolve(generatorRoutes(asyncRoute))
       })
     },
     isEmpty() {
@@ -41,3 +64,4 @@ const usePermissionStore = defineStore('permission', {
     }
   }
 })
+export default usePermissionStore

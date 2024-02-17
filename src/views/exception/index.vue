@@ -1,5 +1,6 @@
 <template>
   <div class="main-container">
+    <div>我是</div>
     <ExceptionStatus status="404" />
   </div>
 </template>

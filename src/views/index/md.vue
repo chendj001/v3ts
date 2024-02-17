@@ -1,6 +1,6 @@
 <template>
   <div>
-    index----------do
+    md
   </div>
 </template>
 
@@ -8,4 +8,6 @@
 
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>

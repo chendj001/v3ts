@@ -26,10 +26,7 @@ console.log(appConfig.version)
 </script>
 
 <template>
-  <header>
-    <Menu></Menu>
-  </header>
-  <RouterView />
+  <router-view />
 </template>
 
 <style lang="scss">

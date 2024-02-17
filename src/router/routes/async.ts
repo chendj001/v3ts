@@ -21,6 +21,18 @@ export const asyncRoutes = [
           cacheable: true,
           iconPrefix: "icon",
           icon: "menu",
+          isRootPath: true
+        },
+      },
+      {
+        path: "md",
+        name: "Md",
+        component: () => import("@/views/index/md.vue"),
+        meta: {
+          title: "markdown",
+          affix: true,
+          iconPrefix: "icon",
+          icon: "menu",
         },
       },
     ],

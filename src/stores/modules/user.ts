@@ -42,6 +42,9 @@ const useUserStore = defineStore('user', {
     updateByName(keyName: keyof IUser, value: any) {
       this[keyName] = value
     },
+    isTokenExpire() {
+      return !this.token
+    },
     /**
      * 清除用户信息
      */

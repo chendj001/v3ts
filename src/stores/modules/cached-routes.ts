@@ -1,19 +1,20 @@
 import { defineStore } from "pinia";
+import type { RouteRecordRaw } from "vue-router";
 
 const useCachedRoutesStore = defineStore('cached-routes', {
   state: () => {
     return {
-      cachedRoutes: [] as string[]
+      cachedRoutes: [] as RouteRecordRaw[]
     }
   },
   actions: {
-    initCachedRoutes(routes: string[]) {
+    init(routes: RouteRecordRaw[]) {
       this.cachedRoutes = routes
     },
-    setCachedRoutes(routes: string[]) {
+    update(routes: RouteRecordRaw[]) {
       this.cachedRoutes = routes
     },
-    resetCachedRoutes() {
+    reset() {
       this.$reset()
     },
   }

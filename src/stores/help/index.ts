@@ -50,10 +50,10 @@ export function findRootPathRoute(routes: RouteRecordRaw[]): RouteRecordRaw | un
 export function isLocalRoute(route: RouteRecordRaw, localRoutes: RouteRecordRaw[], path = '/') {
   for (const localRoute of localRoutes) {
     if (route.path === resolvePath(path, localRoute.path)) {
-      return localRoute
+      return route
     }
     if (localRoute.children) {
-      const childRoute: any = filterRoutesFromLocalRoutes(route, localRoute.children, resolvePath(path, localRoute.path))
+      const childRoute: any = isLocalRoute(route, localRoute.children, resolvePath(path, localRoute.path))
       if (childRoute) {
         return childRoute
       }
@@ -67,6 +67,7 @@ export function generatorRoutes(res: RouteRecordRaw[]) {
     // 是否是目录
     const isMenu = it.children && it.children.length > 0
     const localRoute = isMenu ? isLocalRoute(it, asyncRoutes) : null
+    console.log('🎍',it,localRoute)
     if (localRoute) {
       tempRoutes.push(localRoute)
     } else {
