@@ -5,10 +5,17 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 
 import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 
 import VitePluginVitepress from './src/plugins/vite-plugin-vitepress'
 import VitePluginClean from './src/plugins/vite-plugin-clean'
 import myLib from './src/resolver'
+
+import path from 'path'
+// svg
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
+import vueSetupExtend from 'vite-plugin-vue-setup-extend'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -31,12 +38,24 @@ export default defineConfig({
         /\.md$/ // .md
       ],
       // global imports to register
-      imports: ['vue', 'vue-router'],
+      imports: ['vue', 'vue-router', {
+        'naive-ui': ['*']
+      }],
       resolvers: [myLib()]
+    }),
+    Components({
+      dts: true,
+      resolvers: [NaiveUiResolver()]
     }),
     VitePluginClean({
       targetFiles: /dev-dist|dist/
-    })
+    }),
+    vueSetupExtend(),
+    createSvgIconsPlugin({
+      iconDirs: [path.resolve(process.cwd(), 'src/icons')],
+      // icons的子目录才有dir
+      symbolId: 'icon-[dir]-[name]'
+    }),
   ],
   resolve: {
     alias: {

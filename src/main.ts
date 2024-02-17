@@ -7,6 +7,7 @@ import App from './App.vue'
 import router from './router'
 import '@/plugins/vite-plugin-vitepress/theme'
 import useRouteGuard from './router/guard'
+import "virtual:svg-icons-register";
 const app = createApp(App)
 app.use(pinia)
 app.use(router)

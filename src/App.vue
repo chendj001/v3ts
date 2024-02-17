@@ -25,13 +25,20 @@ console.log(appConfig.version)
 </script>
 
 <template>
-  <router-view />
+  <n-notification-provider>
+    <n-message-provider>
+      <n-dialog-provider>
+        <router-view />
+      </n-dialog-provider>
+    </n-message-provider>
+  </n-notification-provider>
 </template>
 
 <style lang="scss">
-#app {
-  max-width: 900px;
-  padding-top: 50px;
-  margin: 0 auto;
+html,
+body,
+#app,
+.page {
+  height: 100%;
 }
 </style>

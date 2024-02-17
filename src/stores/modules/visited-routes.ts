@@ -10,6 +10,11 @@ export const useVisitedRouteStore = defineStore('visited-routes', {
       isLoadAffix: false,
     }
   },
+  getters: {
+    getVisitedRoutes(state) {
+      return state.visitedRoutes
+    },
+  },
   actions: {
     init(affixRoutes: RouteRecordRaw[]) {
       affixRoutes.reverse().forEach(affixRoute => {
