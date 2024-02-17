@@ -16,6 +16,13 @@ copyToClipboard('123')
 
 getVer('ppp')
 
+import useUserStore from '@/stores/modules/user'
+import useAppConfigStore from './stores/modules/app-config';
+const userStore = useUserStore()
+const appConfig = useAppConfigStore()
+userStore.update({ nickName: '000' })
+userStore.updateByName('token', '000')
+console.log(appConfig.version)
 </script>
 
 <template>

@@ -8,7 +8,8 @@
     "playwright.config.*",
     "./src/resolver",
     "./src/plugins/vite-plugin-clean",
-    "./src/plugins/vite-plugin-vitepress"
+    "./src/plugins/vite-plugin-vitepress",
+    "./src/stores/modules/*"
   ],
   "compilerOptions": {
     "composite": true,
