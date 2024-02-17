@@ -67,7 +67,6 @@ export function generatorRoutes(res: RouteRecordRaw[]) {
     // 是否是目录
     const isMenu = it.children && it.children.length > 0
     const localRoute = isMenu ? isLocalRoute(it, asyncRoutes) : null
-    console.log('🎍',it,localRoute)
     if (localRoute) {
       tempRoutes.push(localRoute)
     } else {

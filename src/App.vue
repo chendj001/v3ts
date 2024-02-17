@@ -12,7 +12,6 @@ const Menu = defineComponent({
     return h('div', null, 'Hello')
   }
 })
-copyToClipboard('123')
 
 getVer('ppp')
 

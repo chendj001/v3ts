@@ -21,7 +21,7 @@ export const asyncRoutes = [
           cacheable: true,
           iconPrefix: "icon",
           icon: "menu",
-          isRootPath: true
+          isRootPath: false
         },
       },
       {
@@ -33,6 +33,7 @@ export const asyncRoutes = [
           affix: true,
           iconPrefix: "icon",
           icon: "menu",
+          isRootPath: true
         },
       },
     ],

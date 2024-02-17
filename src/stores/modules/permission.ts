@@ -25,7 +25,6 @@ export const usePermissionStore = defineStore('permission', {
   actions: {
     async init() {
       const assessRoutes = await this.getRoute();
-      console.log('1111111111', assessRoutes)
       assessRoutes.forEach(route => {
         router.addRoute(route)
       })
