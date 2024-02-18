@@ -8,6 +8,9 @@
         <n-layout-sider bordered content-style="padding: 24px;" :native-scrollbar="false" collapse-mode="width"
           :collapsed-width="0" :width="240" show-trigger="arrow-circle" collapsed-trigger-style="right: -10px;">
           侧边
+          <router-link :to="{ name: 'Index' }">首页</router-link>
+          <router-link :to="{ name: 'Md' }">Md</router-link>
+          <router-link :to="{ name: 'Menu' }">菜单</router-link>
         </n-layout-sider>
         <n-layout :native-scrollbar="false">
           <Main></Main>

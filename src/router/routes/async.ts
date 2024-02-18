@@ -36,6 +36,17 @@ export const asyncRoutes = [
           isRootPath: true
         },
       },
+      {
+        path: "menu",
+        name: "Menu",
+        component: () => import("@/views/index/menu.vue"),
+        meta: {
+          title: "菜单",
+          affix: false,
+          iconPrefix: "icon",
+          icon: "menu",
+        },
+      },
     ],
   }
 ]
