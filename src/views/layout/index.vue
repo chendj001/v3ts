@@ -20,12 +20,20 @@
         底部
       </n-layout-footer>
     </n-layout>
-
   </div>
 </template>
 
 <script setup lang="ts" name="Layout">
 import Main from './main.vue'
+import { useLoadingBar } from "naive-ui";
+const router = useRouter();
+const loadingBar = useLoadingBar();
+router.beforeEach(() => {
+  loadingBar?.start();
+});
+router.afterEach(() => {
+  loadingBar?.finish();
+});
 </script>
 
 <style lang="scss" scoped></style>

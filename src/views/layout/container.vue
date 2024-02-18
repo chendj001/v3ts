@@ -1,6 +1,6 @@
 <template>
   <router-view v-slot="{ Component, route }">
-    <transition mode="out-in" appear>
+    <transition name="opacity-transform" mode="out-in" appear>
       <keep-alive :include="cachedRoutes">
         <component :is="Component" :key="route.fullPath" />
       </keep-alive>

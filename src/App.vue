@@ -28,7 +28,9 @@ console.log(appConfig.version)
   <n-notification-provider>
     <n-message-provider>
       <n-dialog-provider>
-        <router-view />
+        <n-loading-bar-provider>
+          <router-view />
+        </n-loading-bar-provider>
       </n-dialog-provider>
     </n-message-provider>
   </n-notification-provider>
@@ -40,5 +42,18 @@ body,
 #app,
 .page {
   height: 100%;
+}
+/* opacity-transform */
+.opacity-transform-leave-active,
+.opacity-transform-enter-active {
+  transition: all 0.5s;
+}
+
+.opacity-transform-enter-from {
+  opacity: 0;
+}
+
+.opacity-transform-leave-to {
+  opacity: 0;
 }
 </style>
