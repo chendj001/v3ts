@@ -288,7 +288,7 @@ $transitionTime: 0.3s ease;
   line-height: calc(#{$tabHeight} - 3px);
   box-sizing: border-box;
   white-space: nowrap;
-  box-shadow: 10px 5px 10px rgb(0 0 0 / 10%);
+  box-shadow: 0px 5px 10px rgb(0 0 0 / 10%);
 
   .contex-menu-wrapper {
     position: absolute;

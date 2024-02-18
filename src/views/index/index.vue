@@ -1,6 +1,6 @@
 <template>
   <div>
-    index----------do
+    <div v-for="item in 100" :key="item">index{{item}}----------do</div>
   </div>
 </template>
 

@@ -10,7 +10,7 @@ import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 
 import VitePluginVitepress from './src/plugins/vite-plugin-vitepress'
 import VitePluginClean from './src/plugins/vite-plugin-clean'
-import myLib from './src/resolver'
+import { LibResolver, ComResolver } from './src/resolver'
 
 import path from 'path'
 // svg
@@ -38,13 +38,18 @@ export default defineConfig({
         /\.md$/ // .md
       ],
       // global imports to register
-      imports: ['vue', 'vue-router', {
-        'naive-ui': ['*']
-      }],
-      resolvers: [myLib()]
+      imports: [
+        'vue',
+        'vue-router',
+        {
+          'naive-ui': ['*']
+        }
+      ],
+      resolvers: [LibResolver()]
     }),
     Components({
       dts: true,
+      globs: ['src/components/**/index.vue'],
       resolvers: [NaiveUiResolver()]
     }),
     VitePluginClean({
@@ -55,7 +60,7 @@ export default defineConfig({
       iconDirs: [path.resolve(process.cwd(), 'src/icons')],
       // icons的子目录才有dir
       symbolId: 'icon-[dir]-[name]'
-    }),
+    })
   ],
   resolve: {
     alias: {

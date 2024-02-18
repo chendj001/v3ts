@@ -1,6 +1,6 @@
 <template>
   <div class="vaw-main-layout-container scrollbar">
-    <section>
+    <section class="vaw-section">
       <TabBar />
     </section>
     <div class="main-base-style scrollbar">
@@ -14,7 +14,19 @@
 <script setup lang="ts">
 import Container from './container.vue'
 import TabBar from "@/components/tabbar/index.vue";
-const showNavBar = true;
 </script>
 
-<style scoped></style>
+<style lang="scss">
+.vaw-section {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 9;
+}
+.main-section {
+  padding: 10px;
+  padding-top: 50px;
+}
+</style>

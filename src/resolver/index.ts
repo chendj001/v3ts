@@ -4,6 +4,7 @@ import { normalizePath } from 'vite'
 import type { Resolver } from 'unplugin-auto-import/types'
 
 import * as libs from '../utils/index'
+
 /**
  * 暴露哪些函数可以直接使用
  */
@@ -22,6 +23,17 @@ function resolveHooks(name: string) {
 export function LibResolver(): Resolver {
   return (name) => {
     return resolveHooks(name)
+  }
+}
+export function ComResolver(name: string) {
+  if (['SvgIcon'].includes(name)) {
+    return {
+      name,
+      // 拼接路径并序列化
+      form: normalizePath(
+        join(process.cwd(), './src/components/svg-icon/index.vue')
+      )
+    }
   }
 }
 export default LibResolver

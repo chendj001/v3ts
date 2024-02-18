@@ -7,6 +7,7 @@ export {}
 declare global {
   const *: typeof import('naive-ui')
   const EffectScope: typeof import('vue')['EffectScope']
+  const SvgIcon: typeof import('./src/components/svg-icon/index.vue')['SvgIcon']
   const computed: typeof import('vue')['computed']
   const copyToClipboard: typeof import('./src/utils/index')['copyToClipboard']
   const createApp: typeof import('vue')['createApp']
