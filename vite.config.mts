@@ -10,7 +10,7 @@ import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 
 import VitePluginVitepress from './src/plugins/vite-plugin-vitepress'
 import VitePluginClean from './src/plugins/vite-plugin-clean'
-import { LibResolver, ComResolver } from './src/resolver'
+import { LibResolver } from './src/resolver'
 
 import path from 'path'
 // svg

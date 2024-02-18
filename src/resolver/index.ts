@@ -25,15 +25,4 @@ export function LibResolver(): Resolver {
     return resolveHooks(name)
   }
 }
-export function ComResolver(name: string) {
-  if (['SvgIcon'].includes(name)) {
-    return {
-      name,
-      // 拼接路径并序列化
-      form: normalizePath(
-        join(process.cwd(), './src/components/svg-icon/index.vue')
-      )
-    }
-  }
-}
 export default LibResolver
