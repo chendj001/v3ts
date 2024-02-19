@@ -1,7 +1,5 @@
-import { getMd } from '@/md'
-
-const mds = getMd()
-export const asyncRoutes = [
+import type { RouteRecordRaw } from 'vue-router'
+export const asyncRoutes:RouteRecordRaw[] = [
   {
     path: '/index',
     component: () => import('@/views/layout/index.vue'),
@@ -23,7 +21,7 @@ export const asyncRoutes = [
           cacheable: true,
           iconPrefix: 'icon',
           icon: 'menu',
-          isRootPath: false
+          isRootPath: true
         }
       },
       {
@@ -35,7 +33,7 @@ export const asyncRoutes = [
           affix: true,
           iconPrefix: 'icon',
           icon: 'menu',
-          isRootPath: true
+          isRootPath: false
         }
       },
       {

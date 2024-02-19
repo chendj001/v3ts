@@ -1,7 +1,8 @@
 import { getMd } from '@/md'
+import type { RouteRecordRaw } from 'vue-router'
 
 const mds = getMd()
-export const constantRoutes = [
+export const constantRoutes:RouteRecordRaw[] = [
   {
     path: '/redirect',
     component: () => import('@/views/layout/index.vue'),
