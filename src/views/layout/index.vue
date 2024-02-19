@@ -7,7 +7,8 @@
       <n-layout has-sider position="absolute">
         <n-layout-sider bordered :native-scrollbar="false" collapse-mode="width" :collapsed-width="0" :width="210"
           show-trigger="arrow-circle" collapsed-trigger-style="right: -10px;">
-          <n-menu :root-indent="10" :indent="8" :options="menuOptions" :render-label="renderMenuLabel" />
+          <n-menu accordion :root-indent="10" :indent="8" :options="menuOptions" :render-label="renderMenuLabel"
+            :default-expanded-keys="defaultExpandedKeys" />
         </n-layout-sider>
         <n-layout :native-scrollbar="false">
           <Main></Main>
@@ -26,13 +27,14 @@ import SvgIcon from '@/components/svg-icon/index.vue'
 import Main from './main.vue'
 import { NBadge, NIcon, useLoadingBar } from "naive-ui";
 const router = useRouter();
-const loadingBar = useLoadingBar();
-router.beforeEach(() => {
-  loadingBar?.start();
-});
-router.afterEach(() => {
-  loadingBar?.finish();
-});
+// const loadingBar = useLoadingBar();
+// router.beforeEach(() => {
+//   loadingBar?.start();
+// });
+// router.afterEach(() => {
+//   loadingBar?.finish();
+// });
+const defaultExpandedKeys = ref(['dash','md'])
 const renderIcon = (name: string) => {
   return () => h(NIcon, null, { default: () => h(SvgIcon, { name }) })
 }

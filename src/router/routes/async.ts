@@ -1,54 +1,57 @@
+import { getMd } from '@/md'
 
+const mds = getMd()
 export const asyncRoutes = [
   {
-    path: "/index",
+    path: '/index',
     component: () => import('@/views/layout/index.vue'),
     name: 'Dashboard',
     meta: {
-      title: "控制台",
+      title: '控制台',
       iconPrefix: 'icon',
-      icon: "dashboard",
+      icon: 'dashboard'
     },
-    redirect: "/index/index",
+    redirect: '/index/index',
     children: [
       {
-        path: "index",
-        name: "Index",
-        component: () => import("@/views/index/index.vue"),
+        path: 'index',
+        name: 'Index',
+        component: () => import('@/views/index/index.vue'),
         meta: {
-          title: "首页",
+          title: '首页',
           affix: true,
           cacheable: true,
-          iconPrefix: "icon",
-          icon: "menu",
+          iconPrefix: 'icon',
+          icon: 'menu',
           isRootPath: false
-        },
+        }
       },
       {
-        path: "md",
-        name: "Md",
-        component: () => import("@/views/index/md.vue"),
+        path: 'md',
+        name: 'Md',
+        component: () => import('@/views/index/md.vue'),
         meta: {
-          title: "markdown",
+          title: 'markdown',
           affix: true,
-          iconPrefix: "icon",
-          icon: "menu",
+          iconPrefix: 'icon',
+          icon: 'menu',
           isRootPath: true
-        },
+        }
       },
       {
-        path: "menu",
-        name: "Menu",
-        component: () => import("@/views/index/menu.vue"),
+        path: 'menu',
+        name: 'Menu',
+        component: () => import('@/views/index/menu.vue'),
         meta: {
-          title: "菜单",
+          title: '菜单',
           affix: false,
-          iconPrefix: "icon",
-          icon: "menu",
-        },
-      },
-    ],
-  }
+          iconPrefix: 'icon',
+          icon: 'menu'
+        }
+      }
+    ]
+  },
+  
 ]
 
 export default asyncRoutes

@@ -45,4 +45,8 @@ export interface IRouteMeta {
    * 是否为单页面
    */
   isSingle?: boolean
+  /**
+   * 是否不显示在TabBar上
+   */
+  noShowTabbar?:boolean
 }

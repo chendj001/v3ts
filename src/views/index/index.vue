@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-for="item in 100" :key="item">index{{item}}----------do</div>
+    首页
   </div>
 </template>
 

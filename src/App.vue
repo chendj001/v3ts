@@ -43,6 +43,12 @@ body,
 .page {
   height: 100%;
 }
+
+.vp-doc {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 /* opacity-transform */
 .opacity-transform-leave-active,
 .opacity-transform-enter-active {

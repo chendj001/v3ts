@@ -1,6 +1,6 @@
 <template>
   <div>
-    md
+    <router-link :to="{name:'MdTsIndex'}">MdTsIndex</router-link>
   </div>
 </template>
 

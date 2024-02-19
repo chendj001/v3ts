@@ -1,38 +1,39 @@
-function pathToObjectPath(path: string, objPath: any, component: any): any {
-  const pathArray = path
-    .split('/')
-    .filter((item) => !['', 'src'].includes(item))
-
-  let currentObj: any = objPath
-  for (let item of pathArray) {
-    currentObj.children = currentObj.children || []
-    let existingChild = currentObj.children.find(
-      (child: any) => Object.keys(child)[0] === item
-    )
-    if (existingChild) {
-      currentObj = existingChild[item]
-    } else {
-      let newObj: any = { [item]: { label: item, key: item, children: [] } }
-      if (item.endsWith('.md')) {
-        let label=item.replace(/\.md/,'');
-        newObj = { [label]: { component: component } }
-      }
-      currentObj.children.push(newObj)
-      currentObj = newObj[item]
-    }
-  }
-  return objPath
-}
-
 export const getMd = () => {
   let mds = import.meta.glob(['/src/md/**/*.md'])
-  let objPath: any = {}
-  for (let path in mds) {
-    pathToObjectPath(path, objPath, mds[path])
+  let routes: any[] = []
+  for (let url in mds) {
+    let path = url.replace(/^\/src|\.md$/g, '')
+    let name = path.replace(/\/(\w)/g, (match, p1) => p1.toUpperCase())
+    routes.push({
+      path,
+      name,
+      component: mds[url],
+      meta: {
+        title: 'markdown',
+        iconPrefix: 'icon',
+        icon: 'md',
+        noShowTabbar: true
+      }
+    })
   }
-  if (objPath.children) {
-    console.log(objPath.children[0])
-  }
-
-  return mds
+  routes = routes.reduce((prev, curr) => {
+    if (curr.path.endsWith('/index')) {
+      prev.push({
+        path: curr.path.replace(/\/index/, ''),
+        name: curr.name.replace(/Index/, ''),
+        redirect: {
+          name: curr.name
+        },
+        meta: {
+          title: 'markdown',
+          iconPrefix: 'icon',
+          icon: 'md',
+          noShowTabbar: true
+        }
+      })
+    }
+    prev.push(curr)
+    return prev
+  }, [])
+  return routes
 }
