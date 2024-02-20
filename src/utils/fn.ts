@@ -57,3 +57,24 @@ export async function copyToClipboard(text: string) {
 export async function getVer(params: string) {
   return '1.0.0'
 }
+/**
+ * 将数组按照指定的条件分组
+ * @param array 
+ * @param key 
+ */
+export function groupBy<T, K extends keyof T>(
+  array: T[],
+  key: K
+): Record<T[K], T[]> {
+  return array.reduce((result, currentValue) => {
+    const groupKey = currentValue[key]
+
+    if (!result[groupKey]) {
+      result[groupKey] = []
+    }
+
+    result[groupKey].push(currentValue)
+
+    return result
+  }, {} as Record<T[K], T[]>)
+}

@@ -18,6 +18,7 @@ declare global {
   const getCurrentInstance: typeof import('vue')['getCurrentInstance']
   const getCurrentScope: typeof import('vue')['getCurrentScope']
   const getVer: typeof import('./src/utils/index')['getVer']
+  const groupBy: typeof import('./src/utils/index')['groupBy']
   const h: typeof import('vue')['h']
   const inject: typeof import('vue')['inject']
   const isProxy: typeof import('vue')['isProxy']

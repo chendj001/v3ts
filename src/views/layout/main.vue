@@ -11,7 +11,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts" name="Main">
 import Container from './container.vue'
 import TabBar from "@/components/tabbar/index.vue";
 </script>

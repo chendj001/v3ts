@@ -8,22 +8,13 @@
   </router-view>
 </template>
 
-<script lang="ts">
+<script lang="ts" name="Keep" setup>
 import useAppConfigStore from '@/stores/modules/app-config'
 import useCachedRouteStore from '@/stores/modules/cached-routes'
-import { defineComponent } from 'vue'
-export default defineComponent({
-  name: 'Main',
-  setup() {
-    const appConfig = useAppConfigStore()
-    const cachedRouteStore = useCachedRouteStore()
-    const cachedRoutes: any = computed(() => {
-      return cachedRouteStore.cachedRoutes.map(item => item.name)
-    })
-    return {
-      cachedRouteStore,
-      cachedRoutes
-    }
-  },
+
+const appConfig = useAppConfigStore()
+const cachedRouteStore = useCachedRouteStore()
+const cachedRoutes: any = computed(() => {
+  return cachedRouteStore.cachedRoutes.map(item => item.name)
 })
 </script>

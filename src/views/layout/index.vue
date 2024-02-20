@@ -1,9 +1,6 @@
 <template>
   <div class="page" style="position:relative;">
     <n-layout position="absolute">
-      <!-- <n-layout-header style="height: 48px; padding: 12px" bordered>
-        头部
-      </n-layout-header> -->
       <n-layout has-sider position="absolute">
         <n-layout-sider bordered :native-scrollbar="false" collapse-mode="width" :collapsed-width="0" :width="210"
           show-trigger="arrow-circle" collapsed-trigger-style="right: -10px;">
@@ -14,9 +11,6 @@
           <Main></Main>
         </n-layout>
       </n-layout>
-      <!-- <n-layout-footer bordered position="absolute" style="height: 48px; padding: 12px">
-        底部
-      </n-layout-footer> -->
     </n-layout>
   </div>
 </template>
