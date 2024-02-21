@@ -1,11 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="referrer" content="no-referrer">
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="no-referrer" />
     <title>Vite App</title>
+    <style>
+      @container (width > 750px) {
+        .container {
+          grid-template-columns: repeat(2, 302px);
+        }
+      }
+      .bb {
+        container-type: inline-size;
+      }
+      .box {
+        color: #ff5c00;
+      }
+      @container (width > 750px) {
+        .box {
+          color: #000;
+        }
+      }
+    </style>
   </head>
   <body>
     <div id="app"></div>

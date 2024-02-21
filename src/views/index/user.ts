@@ -4,6 +4,7 @@ export const users= [
     id: '001',
     type: 'user',
     group: '1',
+    icon: 'https://p3-pc.douyinpic.com/img/aweme-avatar/tos-cn-avt-0015_a86e56c980b7955312b5702a547a4cf0~c5_300x300.jpeg?from=2956013662',
     banner: {
       display: 'grid',
       gridTemplateRows: 'repeat(3,1fr)',

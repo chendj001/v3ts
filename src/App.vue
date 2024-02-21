@@ -36,7 +36,7 @@ console.log(appConfig.version)
   </n-notification-provider>
 </template>
 
-<style lang="scss">
+<style>
 html,
 body,
 #app,
@@ -62,4 +62,6 @@ body,
 .opacity-transform-leave-to {
   opacity: 0;
 }
+
+
 </style>
